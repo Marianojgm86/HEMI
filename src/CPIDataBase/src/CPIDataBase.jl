@@ -9,30 +9,30 @@ module CPIDataBase
     using Dates
     using DataFrames
 
-    # Export types
+    # Exportar tipos
     export IndexCPIBase, VarCPIBase, FullCPIBase
     export CountryStructure, UniformCountryStructure, MixedCountryStructure
 
-    # Export functions
+    # Exportar funciones
     export capitalize, varinterm, varinteran, 
         capitalize!, varinterm!, varinteran!, 
         periods, infl_periods, infl_dates,
         getunionalltype
 
-    # Export types for implement new inflation functions
+    # Exportar tipos para implementar nuevas funciones de inflación
     export InflationFunction, EnsembleInflationFunction
     export EnsembleFunction, CombinationFunction
-    export num_measures, weights, measure_name, measure_tag
+    export num_measures, weights, measure_name, measure_tag, params
 
-    # Export types needed to specify type of results
+    # Exportar tipos necesarios para especificar tipos de los resultados 
     export CPIIndex, CPIVarInterm
 
-    # Basic inflation function
+    # Función básica de inflación 
     export InflationTotalCPI
 
     # Definición de tipos para bases del IPC
-    include("cpibase.jl")
-    include("countrystructure.jl")
+    include("CPIBase.jl")
+    include("CountryStructure.jl")
 
     # Operaciones básicas
     include("utils/capitalize.jl")
@@ -40,8 +40,8 @@ module CPIDataBase
     include("utils/varinteran.jl")
 
     # Estructura básica para medidas de inflación 
-    include("inflation/inflation.jl")
-    include("inflation/ensemble.jl")
+    include("inflation/InflationFunction.jl")
+    include("inflation/EnsembleInflationFunction.jl")
 
     # Funciones de utilidad
     export getdates
